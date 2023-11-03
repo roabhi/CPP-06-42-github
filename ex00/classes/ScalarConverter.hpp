@@ -6,7 +6,7 @@
 /*   By: rabril-h <rabril-h@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:09:04 by rabril-h          #+#    #+#             */
-/*   Updated: 2023/11/03 14:19:00 by rabril-h         ###   ########.fr       */
+/*   Updated: 2023/11/03 22:53:52 by rabril-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ class ScalarConverter
       ScalarConverter(const ScalarConverter & scalarconverter);
       ~ScalarConverter();
       ScalarConverter &operator=(const ScalarConverter & inst);
-      // ? utils funcs
+      // ? bool type utils funcs
       static bool isChar(std::string scalar);
       static bool isInt(std::string scalar);
+      static bool isDouble(std::string scalar);
       static bool isFloat(std::string scalar);
+      // ? parsing and checker funcs
       static int  checkType(std::string scalar);
       static bool parseInput(std::string scalar);
 
