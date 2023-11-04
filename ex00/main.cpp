@@ -20,17 +20,26 @@ int main(int argc, char **argv)
 
 	std::cout << std::endl;
 	std::cout << std::endl;
-	std::cout << "############## MY TESTS:    ##############" << std::endl;
+	std::cout << "############## More TESTS:    ##############" << std::endl;
 	std::cout << std::endl;
 	std::cout << std::endl;
 	ScalarConverter::convert("'a'");
 	std::cout << std::endl;
+	ScalarConverter::convert("'ab'");
+	std::cout << std::endl;
 	ScalarConverter::convert("97");
+	std::cout << std::endl;
+	ScalarConverter::convert("-42");
 	std::cout << std::endl;
 	ScalarConverter::convert(".f");
 	std::cout << std::endl;
 	ScalarConverter::convert("97.06222211");
 	std::cout << std::endl;
+	ScalarConverter::convert("97.0622.2211");
+	std::cout << std::endl;
   
   return (0);
 }
+
+// ? Main from Jareste
+// ? https://github.com/jareste
