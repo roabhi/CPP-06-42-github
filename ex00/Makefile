@@ -29,13 +29,13 @@ OBJ = $(SRC:.cpp=.o)
 DEP = $(addsuffix .d, $(basename $(OBJ)))
 
 
-%.o: %.cpp 
+%.o: %.cpp Makefile
 	@${CC} $(CFLAGS) -MMD -c $< -o $@
 
 all:
 	@$(MAKE) $(NAME) --no-print-directory
 
-$(NAME):: $(OBJ) Makefile
+$(NAME):: $(OBJ) 
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
