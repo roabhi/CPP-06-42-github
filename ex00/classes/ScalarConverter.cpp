@@ -51,7 +51,7 @@ bool	ScalarConverter::isInt(std::string scalar)
 		if (scalar[i] == '.' && !std::isdigit(scalar[i]))
 			return (false);
 	return (true);
-}
+} // ? check if type is int by looking for a . which would imply float
 
 bool	ScalarConverter::isFloat(std::string scalar)		
 {
@@ -66,7 +66,7 @@ bool	ScalarConverter::isFloat(std::string scalar)
 				return (true);
 		}
 	return (false);
-}
+} // ? check if type is float by looking for a . or a f taking into account its length
 
 bool	ScalarConverter::isDouble(std::string scalar)
 {
@@ -84,7 +84,7 @@ bool	ScalarConverter::isDouble(std::string scalar)
 	if (scalar.length() < 2)
 		return (false);
 	return (true);
-}
+} // ? check if type is double by looking for only a dot and taking into account the min length for the type
 
 int		ScalarConverter::checkType(std::string scalar)
 {
@@ -101,12 +101,14 @@ int		ScalarConverter::checkType(std::string scalar)
 			return (i + 1);
 	}
 	return (0); 
-}
+} // ? Array of comparing functions whichType
 
 bool	ScalarConverter::parseInput(std::string scalar)
 {
 	bool			dot = false;
 	unsigned int	quote = 0;
+
+  // ? Basic parsing
 
 	try
 	{
@@ -235,16 +237,19 @@ void	ScalarConverter::printInfCase(std::string scalar)
 	}
 }
 
+// ? Entry Point
+
 void	ScalarConverter::convert(std::string scalar)
 {
 	std::cout << std::fixed << std::setprecision(1);
 
-	if (scalar == "-inf" || scalar == "-inff" || scalar == "+inf" || scalar == "+inff" || scalar == "nanf" || scalar == "nan")
-		printInfCase(scalar);
+	// ? Manahe infinite and nan inputs
+  if (scalar == "-inf" || scalar == "-inff" || scalar == "+inf" || scalar == "+inff" || scalar == "nanf" || scalar == "nan")
+		printInfCase(scalar); // ? output result for above
 	else if (parseInput(scalar))
 		try
 		{
-			switch (checkType(scalar))
+			switch (checkType(scalar)) // ? check types against an array of functions
 			{
 				case 1: 
 				{
@@ -254,19 +259,19 @@ void	ScalarConverter::convert(std::string scalar)
 				}
 				case 2:	
 				{
-					int i = std::stoi(scalar);
+					int i = std::stoi(scalar); // ? C11 func
 					printInt(i);
 					break ;
 				}
 				case 3: 
 				{
-					float f = stof(scalar);
+					float f = stof(scalar); // ? C11 func
 					printFloat(f);
 					break ;
 				}
 				case 4: 
 				{
-					double d = stod(scalar);
+					double d = stod(scalar); // ? c11 func
 					printDouble(d);
 					break ;
 				}
