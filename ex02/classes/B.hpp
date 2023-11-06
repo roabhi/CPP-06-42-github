@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   B.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rabril-h <rabril-h@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 17:18:01 by rabril-h          #+#    #+#             */
-/*   Updated: 2023/11/06 17:49:21 by rabril-h         ###   ########.fr       */
+/*   Created: 2023/11/06 17:44:01 by rabril-h          #+#    #+#             */
+/*   Updated: 2023/11/06 17:48:58 by rabril-h         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#ifndef B_HPP
+# define B_HPP
 
-# include <iomanip>
-# include <iostream>
+# include "Base.hpp"
 
-typedef struct	s_Data
-{
-	char	c;
-	int		i;
-	int		*ptr;
-}	Data;
-
-class Serializer
-{
-	public:
-		static uintptr_t serialize(Data* ptr);
-		static Data* deserialize(uintptr_t src);
-  
-  private:
-		Serializer();
-		Serializer(const Serializer &serializer);
-		~Serializer();
-		Serializer	&operator=(const Serializer& serializer);
-	
-};
+class B : public Base
+{};
 
 #endif
