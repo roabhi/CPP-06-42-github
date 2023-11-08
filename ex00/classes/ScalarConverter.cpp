@@ -259,24 +259,23 @@ void	ScalarConverter::convert(std::string scalar)
 				}
 				case 2:	
 				{
-					int i = std::stoi(scalar); // ? C11 func
+					int i = std::stoi(scalar); 
 					printInt(i);
 					break ;
 				}
 				case 3: 
 				{
-					float f = stof(scalar); // ? C11 func
+					float f = stof(scalar); 
 					printFloat(f);
 					break ;
 				}
 				case 4: 
 				{
-					double d = stod(scalar); // ? c11 func
+					double d = stod(scalar); 
 					printDouble(d);
 					break ;
 				}
-				default:
-					std::cout << "switch default::::::::::::::::::::::::::::::::::::::::::::" << std::endl;
+				default:					
 					break ;	
 			}
 		}
